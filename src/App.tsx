@@ -8,7 +8,6 @@ import ChapterView from "./pages/ChapterView";
 import Chatbot from "./pages/Chatbot";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
-import FirebaseTest from "./pages/FirebaseTest";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +22,6 @@ const App = () => (
           <Route path="/chapter/:chapterId" element={<ChapterView />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/firebase-test" element={<FirebaseTest />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
