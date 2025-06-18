@@ -1,0 +1,35 @@
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ChapterView from "./pages/ChapterView";
+import Chatbot from "./pages/Chatbot";
+import AboutUs from "./pages/AboutUs";
+import NotFound from "./pages/NotFound";
+import FirebaseTest from "./pages/FirebaseTest";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/chapter/:chapterId" element={<ChapterView />} />
+          <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/firebase-test" element={<FirebaseTest />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;
